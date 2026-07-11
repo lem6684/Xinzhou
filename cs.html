@@ -72,13 +72,13 @@
             text-align: center;
             margin-bottom: 1.2rem;
         }
-        /* 图标图片放大到 200px（大一倍） */
+        /* 桌面端图标：300px */
         .header .icon-img {
             display: block;
             margin: 0 auto 0.2rem;
-            width: 200px;             /* 原来 100px，再放大一倍 */
+            width: 300px;             /* 桌面端 */
             height: auto;
-            border-radius: 20px;
+            border-radius: 24px;
         }
         .title {
             font-size: 3.2rem;
@@ -367,9 +367,9 @@
             .title {
                 font-size: 2.4rem;
             }
-            /* 小屏图标也放大一倍：80px → 160px */
+            /* 平板端图标：240px（桌面端300px的80%） */
             .header .icon-img {
-                width: 160px;
+                width: 240px;
             }
             .supported span {
                 font-size: 0.65rem;
@@ -408,7 +408,7 @@
                 font-size: 1.8rem;
                 letter-spacing: 2px;
             }
-            /* 手机端图标放大一倍：64px → 128px */
+            /* 手机端图标保持 128px（不变） */
             .header .icon-img {
                 width: 128px;
             }
