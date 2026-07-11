@@ -23,7 +23,6 @@
             align-items: center;
             padding: 20px;
             position: relative;
-            /* 背景图片改为 bj.jpg */
             background-image: url('PICTURE/bj.jpg');
             background-size: cover;
             background-position: center;
@@ -73,12 +72,13 @@
             text-align: center;
             margin-bottom: 1.2rem;
         }
+        /* 图标图片放大一倍：50px → 100px */
         .header .icon-img {
             display: block;
             margin: 0 auto 0.2rem;
-            width: 50px;
+            width: 100px;             /* 原来 50px，放大一倍 */
             height: auto;
-            border-radius: 12px;
+            border-radius: 16px;
         }
         .title {
             font-size: 3.2rem;
@@ -367,8 +367,9 @@
             .title {
                 font-size: 2.4rem;
             }
+            /* 小屏图标也放大一倍：40px → 80px */
             .header .icon-img {
-                width: 40px;
+                width: 80px;
             }
             .supported span {
                 font-size: 0.65rem;
@@ -407,8 +408,9 @@
                 font-size: 1.8rem;
                 letter-spacing: 2px;
             }
+            /* 手机端图标也放大一倍：32px → 64px */
             .header .icon-img {
-                width: 32px;
+                width: 64px;
             }
             .grid {
                 grid-template-columns: 1fr;
