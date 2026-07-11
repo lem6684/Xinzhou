@@ -35,6 +35,7 @@
         .normal {
             font-size: 1em;
         }
+        /* 全局链接样式（浅蓝） */
         a {
             color: #88ccff;
             text-decoration: underline;
@@ -42,12 +43,31 @@
         a:hover {
             color: #bbeeff;
         }
+
+        /* ===== v2版专用亮眼样式 ===== */
+        .v2-link {
+            font-size: 2em;                /* 大字号 */
+            font-weight: bold;             /* 加粗 */
+            color: #ffaa00;               /* 金色 */
+            text-decoration: none;         /* 去掉下划线（更干净） */
+            text-shadow: 0 0 15px #ffaa00, 0 0 30px #ff8800; /* 发光效果 */
+            display: inline-block;         /* 方便加内边距 */
+            padding: 0.1em 0.3em;
+            border-radius: 8px;
+            transition: all 0.3s ease;    /* 平滑过渡 */
+        }
+        .v2-link:hover {
+            color: #ffdd44;               /* 悬停变亮黄 */
+            text-shadow: 0 0 25px #ffdd44, 0 0 50px #ffaa00;
+            transform: scale(1.05);        /* 轻微放大 */
+        }
     </style>
 </head>
 <body>
     <h1>新州导航站</h1>
     <div class="normal">
-        <h3><a href="https://lem6684.github.io/Xinzhou/v2.html">v2版</a></h3>
+        <!-- v2版链接应用了专用类 -->
+        <h3><a href="https://lem6684.github.io/Xinzhou/v2.html" class="v2-link">✨ v2版 ✨</a></h3>
         <h2>新州整合包：</h2>
         &emsp;&emsp;MC百科：<a href="https://www.mcmod.cn/modpack/1247.html">https://www.mcmod.cn/modpack/1247.html</a><br>
         &emsp;&emsp;Modrinth：<a href="https://modrinth.com/modpack/xinzhou">https://modrinth.com/modpack/xinzhou</a>
