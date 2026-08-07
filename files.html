@@ -55,10 +55,28 @@
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border: 1px solid rgba(255, 215, 0, 0.15);
-            border-radius: 48px;          /* 圆角方形（圆角矩形） */
+            border-radius: 48px;
             padding: 3rem 3rem 2.5rem;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 215, 0, 0.04) inset;
             min-height: 300px;
+        }
+
+        /* 返回链接 */
+        .back-link {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .back-link h2 {
+            margin: 0;
+            font-size: 1.8rem;      /* 约等于h2大小，可根据需要调整 */
+            font-weight: bold;
+        }
+        .back-link a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .back-link a:hover {
+            text-decoration: none;   /* 悬停无下划线 */
         }
 
         @media (max-width: 640px) {
@@ -66,6 +84,9 @@
                 padding: 2rem 1.4rem;
                 border-radius: 32px;
                 min-height: 200px;
+            }
+            .back-link h2 {
+                font-size: 1.5rem;
             }
         }
 
@@ -75,12 +96,18 @@
                 border-radius: 24px;
                 min-height: 150px;
             }
+            .back-link h2 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="card">
-        <!-- 这里为空，仅保留风格框架 -->
+        <div class="back-link">
+            <h2><a href="https://lem6684.github.io/Xinzhou/">&lt; 返回</a></h2>
+        </div>
+        <!-- 在此处添加其他内容 -->
     </div>
 </body>
 </html>
