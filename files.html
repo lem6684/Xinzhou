@@ -68,7 +68,7 @@
         }
         .back-link h2 {
             margin: 0;
-            font-size: 1.8rem;      /* 约等于h2大小，可根据需要调整 */
+            font-size: 1.8rem;
             font-weight: bold;
         }
         .back-link a {
@@ -76,9 +76,97 @@
             text-decoration: none;
         }
         .back-link a:hover {
-            text-decoration: none;   /* 悬停无下划线 */
+            text-decoration: none;
         }
 
+        /* ===== 内容样式 ===== */
+        .content {
+            color: #c8d2e6;
+        }
+        .content h3 {
+            color: #ffd700;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 1.2rem 0 0.5rem 0;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .content .item {
+            font-size: 0.95rem;
+            padding: 0.15rem 0;
+            line-height: 1.8;
+        }
+        .content .item .label {
+            color: #8892a8;
+            display: inline-block;
+            min-width: 4.5rem;
+        }
+        .content a {
+            color: #ffd700;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255, 215, 0, 0.15);
+            transition: 0.2s;
+            word-break: break-all;
+        }
+        .content a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffd700;
+        }
+        .content .highlight-text {
+            color: #ffd700;
+        }
+
+        /* ===== 可展开胶囊 ===== */
+        .capsule {
+            margin: 0.8rem 0 0.3rem 0;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 40px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .capsule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
+            user-select: none;
+        }
+        .capsule-header:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+        .capsule-header .arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+        .capsule-header .arrow.open {
+            transform: rotate(180deg);
+        }
+        .capsule-body {
+            display: none;
+            padding: 0.6rem 1.2rem 1rem 1.2rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.06);
+            color: #c8d2e6;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .capsule-body.open {
+            display: block;
+        }
+        .capsule-body .sub-item {
+            padding: 0.2rem 0;
+        }
+        .capsule-body .sub-item .label {
+            color: #8892a8;
+            display: inline-block;
+            min-width: 5rem;
+        }
+
+        /* ===== 响应式 ===== */
         @media (max-width: 640px) {
             .card {
                 padding: 2rem 1.4rem;
@@ -87,6 +175,17 @@
             }
             .back-link h2 {
                 font-size: 1.5rem;
+            }
+            .content .item {
+                font-size: 0.85rem;
+            }
+            .capsule-header {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+            .capsule-body {
+                font-size: 0.82rem;
+                padding: 0.5rem 1rem 0.8rem 1rem;
             }
         }
 
@@ -99,15 +198,65 @@
             .back-link h2 {
                 font-size: 1.2rem;
             }
+            .content .item {
+                font-size: 0.78rem;
+            }
+            .capsule-header {
+                font-size: 0.82rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .capsule-body {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem 0.6rem 0.8rem;
+            }
+            .capsule-body .sub-item .label {
+                min-width: 3.6rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="card">
+        <!-- ===== 返回链接 ===== -->
         <div class="back-link">
             <h2><a href="https://lem6684.github.io/Xinzhou/">&lt; 返回</a></h2>
         </div>
-        <!-- 在此处添加其他内容 -->
+
+        <!-- ===== 内容区域 ===== -->
+        <div class="content">
+            <!-- PDF文件 -->
+            <h3>📄 PDF文件</h3>
+            <div class="item"><span class="label">蓝奏云：</span><a href="https://wwbhl.lanzoum.com/b016ko024j">https://wwbhl.lanzoum.com/b016ko024j</a></div>
+            <div class="item"><span class="label">密码：</span><span class="highlight-text">YZ</span></div>
+
+            <!-- 可展开胶囊：宇宙世界观文件 -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    宇宙世界观文件 <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><span class="label">修改3：</span><a href="https://developer2.lanrar.com/file/?AWdTbVloUmMEDQc/Cj9TPwE+AzsFvwCsB4dQswHzUMgC5lS7CMMFtlWWUYsDv137Bt4O71K2C4IG5lrnVodWuAG9U4xZ4FK5BPwHtwrKU+sBaAPpBeYAiwcuUCYBOVA3AiRUZQg8BT1VZlFYAz5dOAZhDjhSPQs4BjVablYyVm8BOFM9WSJSYAQhB2wKbFNkAWsDMQVpADsHJlAmAS1QbAIwVDMIZwVnVSxRNwNgXXMGbg4/UiILOwY5WmRWa1ZmATNTZ1k0UmcEZQdpCm1TNAFoA2MFbgBnBzVQMwFuUGACOlQ2CDEFZFVhUWIDNV05Bj4OP1JvCycGcVo4VmxWcQF0U3dZYVJ0BDsHNQpjU2YBYwMzBWwANwc3UGQBe1AlAmtUbggwBTdVPlE2A2BdZAZqDjtSNQs5BjBablY9VnkBL1MiWWJSagQlB2wKb1NlAWMDMwVtADQHNVBiAWxQaQIkVHYIJQUmVT5RNgNgXWQGaA4yUj0LPwY0WmVWP1ZxAXRTbVl0UjsEYAdmCnBTYQFjAygFawA6BzlQeAFsUGYCM1QtCHMFNVVsUXADOV0DBj8OYFIwCzkGL1p6Vn5WLgFxU2FZW1JzBDMHbApu&toolsdown">https://developer2.lanrar.com/file/...</a></div>
+                    <div class="sub-item"><span class="label">修改2：</span><a href="https://developer2.lanrar.com/file/?B2FVawAxAzIGDwI6V2IHa1NsAztf5Vf7UdEB4lakB59Xs1S7DcYHtFKRB91R7QWjWoIH5l+7Vt8G5lDtVIUA7ge7VYoAuQPoBv4CsleXB79TOwPpX7xX3FF4AXdWbgdgV3FUZQ05Bz9SYQcOUWwFYFo9BzBfOVZjBjhQblQ8ADQHMlUzAHsDMQYjAmlXMQcyUzgDNV84V2xRcAF3VnoHO1dlVDMNYgdlUisHUFEyBStaMQc2Xy9WbQZgUDVUPAA3B2JVYQA/A24GaQI1V2IHNFNsAz5fZlcxUTIBMFZrBzdXb1RmDWMHMlI8B2JRYwVmWjYHZ181VnoGcVAyVG4AJwdyVXEAOAMlBjkCMFc+BzJTMQMzXzZXYFFhATVWLAdyVz5Ubg01BzVSOQdgUTIFPFo2BzJfOFZkBjNQZFQ6AC8HKVUkADsDOwYnAmlXMgcxUzEDMl80V2JRYgE0VjoHNldxVHYNIAckUjkHYFEyBTxaNAcyXzJWYAY4UGJUOQAnB3JVawAtA2oGYgJjVy0HNVMxAyhfMVdtUW8BKVY7BzFXZlQtDXYHN1JrByZRawVbWmMHaV89VmQGL1BwVHwAeAd3VWcAAgMiBjECaVcz&toolsdown">https://developer2.lanrar.com/file/...</a></div>
+                    <div class="sub-item"><span class="label">修改1：</span><a href="https://developer2.lanrar.com/file/?VDJXaVloADECCwA4ADUHawY5VGxT6VD8AIBWtVelVc0E4Fe4CMMGtQnKAtgGugKkUooF5ALmCoNWtlTpBdRXuVToV4hZ4ADrAvoAsADAB78GbVS+U7BQ2wApViBXb1UyBCJXZgg8Bj4JOgILBjsCZ1I1BTICZQowVmdUYAVuV2NUYVcxWSIAMgInAGsAZgcyBm9UZlM7UGQAIVYgV3tVaQQ2VzAIZwZkCXACZAZnAixSOwUxAnIKOVYyVGEFaVczVDBXNVkxADUCbABiAGcHZwZsVDRTPFAxAGJWNFdtVTAENFc0CDcGMAlqAmQGYAI2Uj8FZQI/CiZWIVQ2BT9XcFQhV3NZYQAmAj0AMgBpBzIGZFRkUzpQZwAwVmJXLVUgBG1XbQgwBjQJYgJlBmUCO1I+BTACZQo4VmNUZAVsV3hUelcmWWIAOAIjAGsAZQcxBmRUYVM0UGAAMlZiVz5VZQQiV3UIJQYlCWICZQZlAjtSOAUyAm8KOlZgVGMFYVdwVCFXaVl0AGkCZgBhAHoHNQZkVH9TPVBqAD5Wflc6VWMENVcuCHMGNgkwAiMGPAJcUmsFawJgCjhWf1R0BS1XL1QkV2VZWwAhAjUAawBk&toolsdown">https://developer2.lanrar.com/file/...</a></div>
+                    <div class="sub-item"><span class="label">修改：</span><a href="https://developer2.lanrar.com/file/?BWMGOAs6Dj9UXQE5AjcBbVRrAztQ6lb6UtJXtAX3B58I7AfoC8BX5ATHANoHu1XzUooP7gXhV94K6ge6VIVWuAW5BtkLsg7lVKwBsQLCAblU4QO6UIZWdFJ7VyEFPQdgCC4HNgs/V28ENwAJBzpVMFI1DzgFYldtCj4HNVQ9Vm8FPQZiC3AOPFRxAWoCZAE0VD0DN1A2VmJSc1chBSkHOwg6B2ALZFc1BH0AZgdmVXtSOg8zBXVXZwpuBzlUa1Y0BTwGYgtuDm5UMAE1AmQBMFRsAz9QOFY2Um1XMAVhBzEIPwcyC2JXMgRnAG8HN1UxUm4PbAVrV3sKfQdlVG5WcQVwBiILMw4oVGsBMwJrATRUNgMzUDlWYVJiV2MFfwdyCGEHPQszV2UEbwBnB2RVbFI+DzoFYldlCj8HOFQ5VnkFKwZ3CzAONlR1AWoCZgEmVHsDdlB4VmlSZFdmBWEHNgg4B2YLZVczBGsAZQd1VSFSYQ96BWdXZwo6By9UO1ZvBSsGYAtuDmNULAFmAmEBMVQgAyBQa1Y7UiJXPwUGB2UIYwdtC2ZXLQR0ACIHKlUkUm0PVQUvVzQKMAcx&toolsdown">https://developer2.lanrar.com/file/...</a></div>
+                    <div class="sub-item"><span class="label">原版：</span><a href="https://developer2.lanrar.com/file/?UjQBPwEwAjNRWFNrVGFUOAA/BDwFvwSoUdFXtALwU8tUsFe4DsUAswXGAdsEuFL0Vo4F5FO3Bo8L6we6ANFbdFIiATIBOgJwUWFTbFRsVDAABQRoBT4EO1FkV2kCZlNhVGBXNQ5rAGIFagFxBDZSIFYxBTJTOAY3CzkHOABpW3xSIgEmAWECZFE3UzdUNlR6AGoENAV1BDRRb1d+AjpTYVRlVzEOYAA3BTEBMQRpUmJWOQU2U2kGPAtuB2IAalttUmYBZwE+AjdRPlMxVDNUZwA/BDAFbgQyUTVXZgJwUyJUMFdmDnUAIQUgATIEIlI6VmgFPVM4BjwLOQc3AGlbbVJgAXABKAI/UWpTYFRmVGgAawQ2BWIEMFFmV2kCblNhVGZXMQ59AHoFdQExBDxSJFYxBTFTOwY8CzkHNgBvW29SYwFjAW4CcFFyU3VUd1RoAGsENgViBDZRZldnAm1TYlRsVzYOdQAhBToBJwRtUmFWOwUuUz8GPAsiBzAAZFtjUnwBZwFrAmdRKVMjVGRUOgAtBG8FBQRlUT1XbAJuU3xUcld0DioAJAU2AQgEJVIyVjEFMA==&toolsdown">https://developer2.lanrar.com/file/...</a></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function toggleCapsule(header) {
+            var body = header.nextElementSibling;
+            var arrow = header.querySelector('.arrow');
+            if (body.classList.contains('open')) {
+                body.classList.remove('open');
+                arrow.classList.remove('open');
+            } else {
+                body.classList.add('open');
+                arrow.classList.add('open');
+            }
+        }
+    </script>
 </body>
 </html>
