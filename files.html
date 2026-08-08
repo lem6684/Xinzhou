@@ -119,12 +119,12 @@
 
         /* ===== 可展开胶囊（垂直排列） ===== */
         .capsule {
-            margin: 0.8rem 0 0.3rem 0;  /* 恢复上下间距 */
+            margin: 0.8rem 0 0.3rem 0;
             border: 1px solid rgba(255, 215, 0, 0.15);
             border-radius: 40px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.02);
-            width: 100%;              /* 每个占满宽度 */
+            width: 100%;
         }
         .capsule-header {
             display: flex;
@@ -162,14 +162,17 @@
         .capsule-body .sub-item {
             padding: 0.2rem 0;
         }
+        /* ===== 修改点：胶囊内链接改为点状下划线，与视频链接一致 ===== */
         .capsule-body .sub-item a {
             color: #ffd700;
-            text-decoration: underline;
-            border-bottom: none;
-            font-size: 1rem;         /* 恢复最初大小 */
+            text-decoration: none;                /* 去掉默认实线下划线 */
+            border-bottom: 1px dotted rgba(255, 215, 0, 0.15);  /* 点状下划线 */
+            font-size: 1rem;
+            transition: 0.2s;
         }
         .capsule-body .sub-item a:hover {
             color: #ffffff;
+            border-bottom-color: #ffd700;        /* 悬停时边框变亮 */
         }
 
         /* ===== 响应式 ===== */
