@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="/download/3d577d37d-97b87aaa4/sitemap.xsl"?>
+<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
        <loc>https://lem6684.github.io/Xinzhou/</loc>
-       <lastmod>2026-07-11T14:01:22+00:00</lastmod>
+       <lastmod>2026-08-08T05:15:36+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>1.0000</priority>
   </url>
   <url>
-       <loc>https://lem6684.github.io/Xinzhou/v1.html</loc>
-       <lastmod>2026-07-11T14:01:22+00:00</lastmod>
+       <loc>https://lem6684.github.io/Xinzhou/files</loc>
+       <lastmod>2026-08-08T05:15:36+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://lem6684.github.io/Xinzhou/v1</loc>
+       <lastmod>2026-08-08T05:15:36+00:00</lastmod>
        <changefreq>daily</changefreq>
        <priority>0.8000</priority>
   </url>
