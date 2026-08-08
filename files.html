@@ -117,12 +117,14 @@
             color: #ffd700;
         }
 
-        /* ===== 可展开胶囊 ===== */
+        /* ===== 可展开胶囊（垂直排列） ===== */
         .capsule {
+            margin: 0.8rem 0 0.3rem 0;  /* 恢复上下间距 */
             border: 1px solid rgba(255, 215, 0, 0.15);
             border-radius: 40px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.02);
+            width: 100%;              /* 每个占满宽度 */
         }
         .capsule-header {
             display: flex;
@@ -164,24 +166,10 @@
             color: #ffd700;
             text-decoration: underline;
             border-bottom: none;
-            font-size: 1rem;         /* 恢复为最初大小（与正文一致） */
+            font-size: 1rem;         /* 恢复最初大小 */
         }
         .capsule-body .sub-item a:hover {
             color: #ffffff;
-        }
-
-        /* ===== 胶囊网格布局 ===== */
-        .capsule-grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
-            margin: 0.8rem 0 0.5rem 0;
-        }
-        .capsule-grid-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 0.8rem;
-            margin: 0.5rem 0 0.5rem 0;
         }
 
         /* ===== 响应式 ===== */
@@ -203,6 +191,9 @@
             .content .item {
                 font-size: 0.95rem;
             }
+            .capsule {
+                margin: 0.5rem 0 0.2rem 0;
+            }
             .capsule-header {
                 font-size: 1rem;
                 padding: 0.6rem 1rem;
@@ -212,13 +203,7 @@
                 padding: 0.6rem 1rem 0.8rem 1rem;
             }
             .capsule-body .sub-item a {
-                font-size: 0.9rem;    /* 对应恢复 */
-            }
-            /* 移动端堆叠 */
-            .capsule-grid-2,
-            .capsule-grid-3 {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -249,7 +234,7 @@
                 padding: 0.5rem 0.8rem 0.6rem 0.8rem;
             }
             .capsule-body .sub-item a {
-                font-size: 0.8rem;    /* 对应恢复 */
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -268,70 +253,65 @@
             <div class="item"><span class="label">蓝奏云：</span><a href="https://wwbhl.lanzoum.com/b016ko024j">https://wwbhl.lanzoum.com/b016ko024j</a></div>
             <div class="item"><span class="label">密码：</span><span class="highlight-text">YZ</span></div>
 
-            <!-- ===== 第一行：前两个胶囊（各占一半） ===== -->
-            <div class="capsule-grid-2">
-                <!-- 宇宙世界观介绍 -->
-                <div class="capsule">
-                    <div class="capsule-header" onclick="toggleCapsule(this)">
-                        宇宙世界观介绍 <span class="arrow">▼</span>
-                    </div>
-                    <div class="capsule-body">
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iUnMW3yfmzyj" target="_blank" rel="noopener noreferrer">修改3</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ikopJ3wdtbmb" target="_blank" rel="noopener noreferrer">修改2</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/i907o3qt9eyb" target="_blank" rel="noopener noreferrer">修改1</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iMClr3qn82ud" target="_blank" rel="noopener noreferrer">修改</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/i0MeC3qn82gj" target="_blank" rel="noopener noreferrer">最初版</a></div>
-                    </div>
+            <!-- ===== 所有胶囊垂直排列（每个占一行） ===== -->
+            <!-- 宇宙世界观介绍 -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    宇宙世界观介绍 <span class="arrow">▼</span>
                 </div>
-
-                <!-- 有关表现体城市新州的介绍 -->
-                <div class="capsule">
-                    <div class="capsule-header" onclick="toggleCapsule(this)">
-                        有关表现体城市新州的介绍 <span class="arrow">▼</span>
-                    </div>
-                    <div class="capsule-body">
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ikTsB3yfmzvg" target="_blank" rel="noopener noreferrer">修改2</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ixzPx3wdtbji" target="_blank" rel="noopener noreferrer">修改1</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iXI3J3ok2yti" target="_blank" rel="noopener noreferrer">修改</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iZlFw3konkja" target="_blank" rel="noopener noreferrer">最初版</a></div>
-                    </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iUnMW3yfmzyj" target="_blank" rel="noopener noreferrer">修改3</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ikopJ3wdtbmb" target="_blank" rel="noopener noreferrer">修改2</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/i907o3qt9eyb" target="_blank" rel="noopener noreferrer">修改1</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iMClr3qn82ud" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/i0MeC3qn82gj" target="_blank" rel="noopener noreferrer">最初版</a></div>
                 </div>
             </div>
 
-            <!-- ===== 第二行：后三个胶囊（各占三分之一） ===== -->
-            <div class="capsule-grid-3">
-                <!-- 新州地铁1号线（公用） -->
-                <div class="capsule">
-                    <div class="capsule-header" onclick="toggleCapsule(this)">
-                        新州地铁1号线 （公用） <span class="arrow">▼</span>
-                    </div>
-                    <div class="capsule-body">
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iTxA23nhhw1e" target="_blank" rel="noopener noreferrer">修改1</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iKTc73mvfm3c" target="_blank" rel="noopener noreferrer">修改</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iH3Ek3konkgh" target="_blank" rel="noopener noreferrer">最初版</a></div>
-                    </div>
+            <!-- 有关表现体城市新州的介绍 -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    有关表现体城市新州的介绍 <span class="arrow">▼</span>
                 </div>
-
-                <!-- 新州市建设相关图 -->
-                <div class="capsule">
-                    <div class="capsule-header" onclick="toggleCapsule(this)">
-                        新州市建设相关图 <span class="arrow">▼</span>
-                    </div>
-                    <div class="capsule-body">
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iIL903nf0x6b" target="_blank" rel="noopener noreferrer">修改</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iKXsq3kp2s7g" target="_blank" rel="noopener noreferrer">最初版</a></div>
-                    </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ikTsB3yfmzvg" target="_blank" rel="noopener noreferrer">修改2</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ixzPx3wdtbji" target="_blank" rel="noopener noreferrer">修改1</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iXI3J3ok2yti" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iZlFw3konkja" target="_blank" rel="noopener noreferrer">最初版</a></div>
                 </div>
+            </div>
 
-                <!-- 11号线（机场快线）重置（公用） -->
-                <div class="capsule">
-                    <div class="capsule-header" onclick="toggleCapsule(this)">
-                        11号线（机场快线）重置（公用） <span class="arrow">▼</span>
-                    </div>
-                    <div class="capsule-body">
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ieN6J3mvfm1a" target="_blank" rel="noopener noreferrer">修改</a></div>
-                        <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iwk5X3konkbc" target="_blank" rel="noopener noreferrer">最初版</a></div>
-                    </div>
+            <!-- 新州地铁1号线（公用） -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    新州地铁1号线 （公用） <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iTxA23nhhw1e" target="_blank" rel="noopener noreferrer">修改1</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iKTc73mvfm3c" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iH3Ek3konkgh" target="_blank" rel="noopener noreferrer">最初版</a></div>
+                </div>
+            </div>
+
+            <!-- 新州市建设相关图 -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    新州市建设相关图 <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iIL903nf0x6b" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iKXsq3kp2s7g" target="_blank" rel="noopener noreferrer">最初版</a></div>
+                </div>
+            </div>
+
+            <!-- 11号线（机场快线）重置（公用） -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    11号线（机场快线）重置（公用） <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ieN6J3mvfm1a" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iwk5X3konkbc" target="_blank" rel="noopener noreferrer">最初版</a></div>
                 </div>
             </div>
 
