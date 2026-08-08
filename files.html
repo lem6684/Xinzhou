@@ -123,9 +123,6 @@
             border-radius: 40px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.02);
-            /* 移除 margin，由外层容器控制间距 */
-            flex: 1 1 100%;  /* 默认占满，由父级覆盖 */
-            min-width: 200px; /* 防止过窄 */
         }
         .capsule-header {
             display: flex;
@@ -173,20 +170,18 @@
             color: #ffffff;
         }
 
-        /* ===== 胶囊行布局 ===== */
-        .capsule-row {
-            display: flex;
-            flex-wrap: wrap;
+        /* ===== 胶囊网格布局 ===== */
+        .capsule-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 0.8rem;
             margin: 0.8rem 0 0.5rem 0;
         }
-        /* 前两个胶囊：各占一半（减去间距） */
-        .capsule-row-2 .capsule {
-            flex: 1 1 calc(50% - 0.4rem);
-        }
-        /* 后三个胶囊：各占三分之一（减去间距） */
-        .capsule-row-3 .capsule {
-            flex: 1 1 calc(33.33% - 0.53rem);
+        .capsule-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.8rem;
+            margin: 0.5rem 0 0.5rem 0;
         }
 
         /* ===== 响应式 ===== */
@@ -220,11 +215,9 @@
                 font-size: 0.95rem;
             }
             /* 移动端堆叠 */
-            .capsule-row-2 .capsule,
-            .capsule-row-3 .capsule {
-                flex: 1 1 100%;
-            }
-            .capsule-row {
+            .capsule-grid-2,
+            .capsule-grid-3 {
+                grid-template-columns: 1fr;
                 gap: 0.5rem;
             }
         }
@@ -275,8 +268,8 @@
             <div class="item"><span class="label">蓝奏云：</span><a href="https://wwbhl.lanzoum.com/b016ko024j">https://wwbhl.lanzoum.com/b016ko024j</a></div>
             <div class="item"><span class="label">密码：</span><span class="highlight-text">YZ</span></div>
 
-            <!-- ===== 第一行：前两个胶囊 ===== -->
-            <div class="capsule-row capsule-row-2">
+            <!-- ===== 第一行：前两个胶囊（各占一半） ===== -->
+            <div class="capsule-grid-2">
                 <!-- 宇宙世界观介绍 -->
                 <div class="capsule">
                     <div class="capsule-header" onclick="toggleCapsule(this)">
@@ -305,8 +298,8 @@
                 </div>
             </div>
 
-            <!-- ===== 第二行：后三个胶囊 ===== -->
-            <div class="capsule-row capsule-row-3">
+            <!-- ===== 第二行：后三个胶囊（各占三分之一） ===== -->
+            <div class="capsule-grid-3">
                 <!-- 新州地铁1号线（公用） -->
                 <div class="capsule">
                     <div class="capsule-header" onclick="toggleCapsule(this)">
