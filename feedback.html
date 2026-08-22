@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新州导航站 · 相关文件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            background-image: url('PICTURE/bj.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 215, 0, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 215, 0, 0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            max-width: 820px;
+            width: 100%;
+            background: rgba(11, 14, 20, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 48px;
+            padding: 3rem 3rem 2.5rem;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 215, 0, 0.04) inset;
+            min-height: 300px;
+        }
+
+        /* ===== 返回链接 ===== */
+        .back-link {
+            display: block;
+            margin-bottom: 1.8rem;
+        }
+        .back-link h2 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+        .back-link a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .back-link a:hover {
+            text-decoration: none;
+        }
+
+        /* ===== 内容样式（整体放大） ===== */
+        .content {
+            color: #c8d2e6;
+            font-size: 1.15rem;
+        }
+        .content h3 {
+            color: #ffd700;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.6rem 0;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .content .item {
+            font-size: 1.05rem;
+            padding: 0.2rem 0;
+            line-height: 2;
+        }
+        .content .item .label {
+            color: #8892a8;
+            display: inline-block;
+            min-width: 5rem;
+        }
+        .content a {
+            color: #ffd700;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255, 215, 0, 0.15);
+            transition: 0.2s;
+            word-break: break-all;
+        }
+        .content a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffd700;
+        }
+        .content .highlight-text {
+            color: #ffd700;
+        }
+
+        /* ===== 可展开胶囊（垂直排列） ===== */
+        .capsule {
+            margin: 0.8rem 0 0.3rem 0;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 40px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            width: 100%;
+        }
+        .capsule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.4rem;
+            cursor: pointer;
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: background 0.2s;
+            user-select: none;
+        }
+        .capsule-header:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+        .capsule-header .arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        .capsule-header .arrow.open {
+            transform: rotate(180deg);
+        }
+        .capsule-body {
+            display: none;
+            padding: 0.8rem 1.4rem 1.2rem 1.4rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.06);
+            color: #c8d2e6;
+            font-size: 1.05rem;
+            line-height: 2;
+        }
+        .capsule-body.open {
+            display: block;
+        }
+        .capsule-body .sub-item {
+            padding: 0.2rem 0;
+        }
+        /* ===== 修改点：胶囊内链接改为点状下划线，与视频链接一致 ===== */
+        .capsule-body .sub-item a {
+            color: #ffd700;
+            text-decoration: none;                /* 去掉默认实线下划线 */
+            border-bottom: 1px dotted rgba(255, 215, 0, 0.15);  /* 点状下划线 */
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+        .capsule-body .sub-item a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffd700;        /* 悬停时边框变亮 */
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 640px) {
+            .card {
+                padding: 2rem 1.4rem;
+                border-radius: 32px;
+                min-height: 200px;
+            }
+            .back-link h2 {
+                font-size: 1.8rem;
+            }
+            .content {
+                font-size: 1rem;
+            }
+            .content h3 {
+                font-size: 1.2rem;
+            }
+            .content .item {
+                font-size: 0.95rem;
+            }
+            .capsule {
+                margin: 0.5rem 0 0.2rem 0;
+            }
+            .capsule-header {
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
+            }
+            .capsule-body {
+                font-size: 0.95rem;
+                padding: 0.6rem 1rem 0.8rem 1rem;
+            }
+            .capsule-body .sub-item a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .card {
+                padding: 1.5rem 1rem;
+                border-radius: 24px;
+                min-height: 150px;
+            }
+            .back-link h2 {
+                font-size: 1.5rem;
+            }
+            .content {
+                font-size: 0.9rem;
+            }
+            .content h3 {
+                font-size: 1.1rem;
+            }
+            .content .item {
+                font-size: 0.85rem;
+            }
+            .capsule-header {
+                font-size: 0.9rem;
+                padding: 0.5rem 0.8rem;
+            }
+            .capsule-body {
+                font-size: 0.85rem;
+                padding: 0.5rem 0.8rem 0.6rem 0.8rem;
+            }
+            .capsule-body .sub-item a {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- ===== 返回链接 ===== -->
+        <div class="back-link">
+            <h2><a href="https://lem6684.github.io/Xinzhou/">&lt; 返回</a></h2>
+        </div>
+
+        <!-- ===== 内容区域 ===== -->
+        <div class="content">
+            <!-- PDF文件 -->
+            <h3>📄 PDF文件</h3>
+            <div class="item"><span class="label">蓝奏云：</span><a href="https://wwbhl.lanzoum.com/b016ko024j">https://wwbhl.lanzoum.com/b016ko024j</a></div>
+            <div class="item"><span class="label">密码：</span><span class="highlight-text">YZ</span></div>
+
+            <!-- ===== 所有胶囊垂直排列（每个占一行） ===== -->
+            <!-- 宇宙世界观介绍 -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    宇宙世界观介绍 <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/istw543fd9vg" target="_blank" rel="noopener noreferrer">修改4</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iUnMW3yfmzyj" target="_blank" rel="noopener noreferrer">修改3</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ikopJ3wdtbmb" target="_blank" rel="noopener noreferrer">修改2</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/i907o3qt9eyb" target="_blank" rel="noopener noreferrer">修改1</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iMClr3qn82ud" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/i0MeC3qn82gj" target="_blank" rel="noopener noreferrer">最初版</a></div>
+                </div>
+            </div>
+
+            <!-- 有关表现体城市新州的介绍 -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    有关表现体城市新州的介绍 <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iRtnH43fd8ji" target="_blank" rel="noopener noreferrer">修改3</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ikTsB3yfmzvg" target="_blank" rel="noopener noreferrer">修改2</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ixzPx3wdtbji" target="_blank" rel="noopener noreferrer">修改1</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iXI3J3ok2yti" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iZlFw3konkja" target="_blank" rel="noopener noreferrer">最初版</a></div>
+                </div>
+            </div>
+
+            <!-- 新州地铁1号线（公用） -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    新州地铁1号线 （公用） <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iTxA23nhhw1e" target="_blank" rel="noopener noreferrer">修改1</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iKTc73mvfm3c" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iH3Ek3konkgh" target="_blank" rel="noopener noreferrer">最初版</a></div>
+                </div>
+            </div>
+
+            <!-- 新州市建设相关图 -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    新州市建设相关图 <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iIL903nf0x6b" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iKXsq3kp2s7g" target="_blank" rel="noopener noreferrer">最初版</a></div>
+                </div>
+            </div>
+
+            <!-- 11号线（机场快线）重置（公用） -->
+            <div class="capsule">
+                <div class="capsule-header" onclick="toggleCapsule(this)">
+                    11号线（机场快线）重置（公用） <span class="arrow">▼</span>
+                </div>
+                <div class="capsule-body">
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/ieN6J3mvfm1a" target="_blank" rel="noopener noreferrer">修改</a></div>
+                    <div class="sub-item"><a href="https://wwbhl.lanzoum.com/iwk5X3konkbc" target="_blank" rel="noopener noreferrer">最初版</a></div>
+                </div>
+            </div>
+
+            <!-- 视频 -->
+            <h3>🎬 到站显示屏的视频：</h3>
+            <div class="item">第一名柠檬B站上的 <a href="https://space.bilibili.com/3537124921968884/lists/5112363?type=series">新州相关视频文件</a> 系列</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCapsule(header) {
+            var body = header.nextElementSibling;
+            var arrow = header.querySelector('.arrow');
+            if (body.classList.contains('open')) {
+                body.classList.remove('open');
+                arrow.classList.remove('open');
+            } else {
+                body.classList.add('open');
+                arrow.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>
