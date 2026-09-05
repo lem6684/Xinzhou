@@ -4,20 +4,22 @@
 
   <url>
        <loc>https://lem6684.github.io/Xinzhou/</loc>
-       <lastmod>2026-08-08T05:15:36+00:00</lastmod>
-       <changefreq>daily</changefreq>
+       <lastmod>2026-09-04T14:31:01+00:00</lastmod>
        <priority>1.0000</priority>
   </url>
   <url>
        <loc>https://lem6684.github.io/Xinzhou/files</loc>
-       <lastmod>2026-08-08T05:15:36+00:00</lastmod>
-       <changefreq>daily</changefreq>
+       <lastmod>2026-09-04T14:31:02+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://lem6684.github.io/Xinzhou/feedback</loc>
+       <lastmod>2026-09-04T14:31:01+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
   <url>
        <loc>https://lem6684.github.io/Xinzhou/v1</loc>
-       <lastmod>2026-08-08T05:15:36+00:00</lastmod>
-       <changefreq>daily</changefreq>
+       <lastmod>2026-09-04T14:31:01+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
 </urlset>
