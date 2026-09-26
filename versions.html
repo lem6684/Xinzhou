@@ -118,6 +118,18 @@
             color: #ffd700;
         }
 
+        /* ===== 新增：h2 内的链接悬停时无任何变化 ===== */
+        .content h2 a {
+            color: inherit;              /* 继承父级颜色（保持原样） */
+            border-bottom: none;         /* 去掉点状下划线 */
+            cursor: default;             /* 鼠标不变手型 */
+            text-decoration: none;
+        }
+        .content h2 a:hover {
+            color: inherit;              /* 悬停不变色 */
+            border-bottom: none;         /* 悬停不加下划线 */
+        }
+
         /* ===== 可展开胶囊（垂直排列） ===== */
         .capsule {
             margin: 0.8rem 0 0.3rem 0;
@@ -163,17 +175,17 @@
         .capsule-body .sub-item {
             padding: 0.2rem 0;
         }
-        /* ===== 修改点：胶囊内链接改为点状下划线，与视频链接一致 ===== */
+        /* ===== 胶囊内链接改为点状下划线，与视频链接一致 ===== */
         .capsule-body .sub-item a {
             color: #ffd700;
-            text-decoration: none;                /* 去掉默认实线下划线 */
-            border-bottom: 1px dotted rgba(255, 215, 0, 0.15);  /* 点状下划线 */
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255, 215, 0, 0.15);
             font-size: 1rem;
             transition: 0.2s;
         }
         .capsule-body .sub-item a:hover {
             color: #ffffff;
-            border-bottom-color: #ffd700;        /* 悬停时边框变亮 */
+            border-bottom-color: #ffd700;
         }
 
         /* ===== 响应式 ===== */
@@ -252,10 +264,7 @@
         
         <!-- ===== 内容区域 ===== -->
         <div class="content">
-            <h2><a>地图版本</a></h2>
-            
-
-            
+            <h1><a>地图版本</a></h1>
             
             <div class="capsule">
                 <div class="capsule-header" onclick="toggleCapsule(this)">
@@ -268,7 +277,6 @@
                 </div>
             </div>
 
-            
             <div class="capsule">
                 <div class="capsule-header" onclick="toggleCapsule(this)">
                     金宝 <span class="arrow">▼</span>
@@ -279,7 +287,6 @@
                 </div>
             </div>
 
-            
             <div class="capsule">
                 <div class="capsule-header" onclick="toggleCapsule(this)">
                     机航主线 <span class="arrow">▼</span>
@@ -289,8 +296,6 @@
                     <div class="sub-item"><a href="https://wwbhl.lanzouc.com/b016l41h6d" target="_blank">v2026Y-09M-26D</a>  密码：JHZX</div>
                 </div>
             </div>
-
-            
         </div>
     </div>
 
