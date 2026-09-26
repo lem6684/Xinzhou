@@ -118,18 +118,6 @@
             color: #ffd700;
         }
 
-        /* ===== 新增：h2 内的链接悬停时无任何变化 ===== */
-        .content h2 a {
-            color: inherit;              /* 继承父级颜色（保持原样） */
-            border-bottom: none;         /* 去掉点状下划线 */
-            cursor: default;             /* 鼠标不变手型 */
-            text-decoration: none;
-        }
-        .content h2 a:hover {
-            color: inherit;              /* 悬停不变色 */
-            border-bottom: none;         /* 悬停不加下划线 */
-        }
-
         /* ===== 可展开胶囊（垂直排列） ===== */
         .capsule {
             margin: 0.8rem 0 0.3rem 0;
@@ -264,7 +252,7 @@
         
         <!-- ===== 内容区域 ===== -->
         <div class="content">
-            <h1><a>地图版本</a></h1>
+            <h1>地图版本</h1><br>
             
             <div class="capsule">
                 <div class="capsule-header" onclick="toggleCapsule(this)">
